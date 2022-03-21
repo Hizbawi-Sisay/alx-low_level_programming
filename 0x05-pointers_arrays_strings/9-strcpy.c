@@ -1,22 +1,40 @@
 #include "main.h"
 
 /**
- * *_strcpy -  copies the string pointed to by src
- * @dest: char type string
- * @src: char type string
- * Description: Copy the string pointed to by pointer `src` to
- * the buffer pointed to by `dest`
- * Return: Pointer to `dest`
+ * string_length - finds the length of a string.
+ * Return: length of c.
+ * @pointer: pointer.
  */
+int string_length(char *pointer)
+{
+	int c = 0;
 
+	while (*(pointer + c) != '\0')
+	{
+		c++;
+	}
+	return (c);
+}
+/**
+ * *_strcpy - copies the string pointed to by src.
+ *
+ * @dest: pointer to the buffer.
+ * @src: pointer to the source string.
+ * Return: char
+ */
 char *_strcpy(char *dest, char *src)
 {
-	int i = -1;
+	int n;
+	int i;
 
-	do {
-		i++;
+	n = string_length(src);
+	for (i = 0; i < n && src[i] != '\0'; i++)
+	{
 		dest[i] = src[i];
-	} while (src[i] != '\0');
-
+	}
+	for (; i < n; i++)
+	{
+		dest[i] = '\0';
+	}
 	return (dest);
 }
